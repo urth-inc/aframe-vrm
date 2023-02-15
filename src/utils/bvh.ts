@@ -1,9 +1,9 @@
-import { VRMAvatar } from '../vrm/avatar';
+import { VRMAvatar } from  '../vrm/avatar';
+import { BVHLoader } from 'three/examples/jsm/loaders/BVHLoader.js'
 
 export class BVHLoaderWrapper {
     public async load(url: string, avatar: VRMAvatar, options: any): Promise<THREE.AnimationClip> {
         /** @ts-ignore */
-        let { BVHLoader } = await import('https://threejs.org/examples/jsm/loaders/BVHLoader.js');
         return await new Promise((resolve, reject) => {
             new BVHLoader().load(url, (result: any) => {
                 if (options.convertBone) {
